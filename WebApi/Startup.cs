@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using WebApi.Models;
 
 namespace WebApi
@@ -29,6 +30,25 @@ namespace WebApi
             services.AddDbContext<PaymentDetailsContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
+
+            //For .NET CORE 2.2
+            //services.AddMvc()
+            //    .AddJsonOptions( opt => {
+            //        var resolver = opt.SerializerSettings.ContractResolver;
+            //        if (resolver != null)
+            //        {
+            //            (resolver as DefaultContractResolver).NamingStrategy = null;
+            //        }
+            //    });
+
+            services.AddMvc()
+                .AddNewtonsoftJson( opt => {
+                    var resolver = opt.SerializerSettings.ContractResolver;
+                    if(resolver != null)
+                    {
+                        (resolver as DefaultContractResolver).NamingStrategy = null;
+                    }
+                });
 
             services.AddControllers();
         }
