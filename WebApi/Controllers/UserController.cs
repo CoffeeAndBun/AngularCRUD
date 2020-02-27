@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,50 +11,51 @@ using WebApi.Models.Entities;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentDetailController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly CnBContext _context;
 
-        public PaymentDetailController(CnBContext context)
+        public UserController(CnBContext context)
         {
             _context = context;
         }
 
-        // GET: api/PaymentDetail
+        // GET: api/User
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PaymentDetail>>> GetPaymentDetails()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.PaymentDetails.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        // GET: api/PaymentDetail/5
+        // GET: api/User/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaymentDetail>> GetPaymentDetail(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (paymentDetail == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return paymentDetail;
+            return user;
         }
 
-        // PUT: api/PaymentDetail/5
+        // PUT: api/User/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPaymentDetail(int id, PaymentDetail paymentDetail)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != paymentDetail.PMId)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(paymentDetail).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +63,7 @@ namespace WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PaymentDetailExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +76,37 @@ namespace WebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/PaymentDetail
+        // POST: api/User
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<PaymentDetail>> PostPaymentDetail(PaymentDetail paymentDetail)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.PaymentDetails.Add(paymentDetail);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PMId }, paymentDetail);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
-        // DELETE: api/PaymentDetail/5
+        // DELETE: api/User/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PaymentDetail>> DeletePaymentDetail(int id)
+        public async Task<ActionResult<User>> DeleteUser(int id)
         {
-            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
-            if (paymentDetail == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.PaymentDetails.Remove(paymentDetail);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return paymentDetail;
+            return user;
         }
 
-        private bool PaymentDetailExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.PaymentDetails.Any(e => e.PMId == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

@@ -5,6 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200227002628_UserCreated.cs" />
+    <Compile Remove="Migrations\20200227002628_UserCreated.Designer.cs" />
+    <Compile Remove="Migrations\20200227003552_UserTableCreated.cs" />
+    <Compile Remove="Migrations\20200227003552_UserTableCreated.Designer.cs" />
+    <Compile Remove="Migrations\20200227004041_CreatedUserTable.cs" />
+    <Compile Remove="Migrations\20200227004041_CreatedUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200227005634_CreateUserTable.cs" />
+    <Compile Remove="Migrations\20200227005634_CreateUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200227005904_CreateUserTable.cs" />
+    <Compile Remove="Migrations\20200227005904_CreateUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200227010102_CreatedUserTable.cs" />
+    <Compile Remove="Migrations\20200227010102_CreatedUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200227010213_CreateUserTable.cs" />
+    <Compile Remove="Migrations\20200227010213_CreateUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200227010338_CreateUserTable.cs" />
+    <Compile Remove="Migrations\20200227010338_CreateUserTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />

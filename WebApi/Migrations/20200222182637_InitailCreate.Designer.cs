@@ -8,7 +8,7 @@ using WebApi.Models;
 
 namespace WebApi.Migrations
 {
-    [DbContext(typeof(PaymentDetailsContext))]
+    [DbContext(typeof(CnBContext))]
     [Migration("20200222182637_InitailCreate")]
     partial class InitailCreate
     {

@@ -7,13 +7,14 @@ using WebApi.Models.Entities;
 
 namespace WebApi.Models
 {
-    public class PaymentDetailsContext : DbContext
+    public class CnBContext : DbContext
     {
-        public PaymentDetailsContext(DbContextOptions<PaymentDetailsContext> options) : base(options)
+        public CnBContext(DbContextOptions<CnBContext> options) : base(options)
         {
 
         }
 
         public DbSet<PaymentDetail> PaymentDetails { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

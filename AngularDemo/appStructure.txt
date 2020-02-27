@@ -1,5 +1,13 @@
 ● src
 +---● app
+|   +--● user
+|   |  |--user.component.ts|.html
+|   |  +--● registration
+|   |  |  |--registration.component.ts|.html|
+|   |  |
+|   |  +--● login
+|   |  |  |--login.component.ts|.html|.css
+|   |  
 |   +--● payment-details
 |   |  |--payment-details.component.ts|.html|.css
 |   |  +--● payment-detail
@@ -7,8 +15,8 @@
 |   |  |
 |   |  +--● payment-detail-list
 |   |  |  |--payment-detail-list.component.ts|.html|.css
-|   |  |
-|   |  +--● shared
+|   |  
+|   +--● shared
 |   |     |--payment-detail.service.ts
 |   |     |--payment-detail.model.ts
 |   |
