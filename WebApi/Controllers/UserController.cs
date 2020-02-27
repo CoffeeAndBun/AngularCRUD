@@ -16,9 +16,9 @@ namespace WebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly PaymentDetailsContext _context;
+        private readonly CnBContext _context;
 
-        public UserController(PaymentDetailsContext context)
+        public UserController(CnBContext context)
         {
             _context = context;
         }

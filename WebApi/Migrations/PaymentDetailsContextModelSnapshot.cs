@@ -7,7 +7,7 @@ using WebApi.Models;
 
 namespace WebApi.Migrations
 {
-    [DbContext(typeof(PaymentDetailsContext))]
+    [DbContext(typeof(CnBContext))]
     partial class PaymentDetailsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
