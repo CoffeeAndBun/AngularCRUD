@@ -10,19 +10,13 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { PaymentDetailComponent } from './payment-details/payment-detail/payment-detail.component';
 import { PaymentDetailListComponent } from './payment-details/payment-detail-list/payment-detail-list.component';
 import { PaymentDetailService } from './shared/payment-detail.service';
-import { UserComponent } from './user/user.component';
-import { RegistrationComponent } from './user/registration/registration.component';
-import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentDetailsComponent,
     PaymentDetailComponent,
-    PaymentDetailListComponent,
-    UserComponent,
-    RegistrationComponent,
-    LoginComponent
+    PaymentDetailListComponent
   ],
   imports: [
     BrowserModule,
